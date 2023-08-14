@@ -1,0 +1,98 @@
+<nz-row style="background: white;">
+  <div class="setbar">
+    <nz-col [nzSpan]="18">
+      <nz-input-group
+        [nzPrefix]="prefixIconSearch"
+        [nzSuffix]="suffixIconFilter"
+        class="searchInput"
+      >
+        <input
+          class="inputText"
+          type="text"
+          nz-input
+          placeholder="Поиск по параметрам"
+        />
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span
+          nz-icon
+          nzType="search"
+          style="color: #17b9da; margin-right: 5px"
+        ></span>
+      </ng-template>
+      <ng-template #suffixIconFilter>
+        <span
+          nz-icon
+          nzType="filter"
+          nzTheme="fill"
+          style="color: black; margin-right: 5px"
+        ></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
+    </nz-col>
+    <nz-col>
+      <button nz-button nzType="primary" nz-dropdown nzTrigger="click" class="create" [nzDropdownMenu]="menu">
+        Создать
+      </button>
+      <nz-dropdown-menu #menu="nzDropdownMenu">
+        <ul nz-menu>
+          <li nz-menu-item (click)="openCreateGroupModal()">Создать группу</li>
+          <li nz-menu-item (click)="openCreateDirectoryModal()">Создать справочник</li>
+        </ul>
+      </nz-dropdown-menu>
+    </nz-col>
+    <nz-col>
+      <button
+        nz-button
+        nzType="default"
+        class="import"
+        (click)="showModalSetting()"
+      >
+        Импортировать
+      </button>
+    </nz-col>
+  </div>
+</nz-row>
+<nz-row style="background-color: white; padding: 0 24px 0 24px; width: 100%">
+  <app-metadata
+    [data]="listOfRandomUser"
+    [columns]="columns"
+    [actions]="ConfigureActionColumn"
+    (queryChange)="onQueryParamsChange($event)"
+    (actionClick)="onActionClick($event)"
+  ></app-metadata>
+</nz-row>
+<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+                   (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()" [cancelButtonTitle]="'Отменить'"
+                   [confirmButtonTitle]="'Сохранить'">
+  <app-create-group-form></app-create-group-form>
+</app-dynamic-modal>
+<app-dynamic-modal [isVisible]="isVisibleDirectory" (isVisibleChange)="isVisibleDirectory = $event"
+                   [modalTitle]="modalTitleDirectory"
+                   (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()" [cancelButtonTitle]="'Отменить'"
+                   [confirmButtonTitle]="'Сохранить изменения'">
+  <app-create-directory-form></app-create-directory-form>
+</app-dynamic-modal>
+<app-dynamic-modal
+  [isVisible]="isVisibleHistoryModal"
+  (isVisibleChange)="isVisibleHistoryModal = $event"
+  [modalTitle]="modalTitle"
+  [modalType]="'singleButton'"
+  (onCancel)="handleModalCancel()"
+  [confirmButtonTitle]="'Закрыть'"
+>
+  <app-organization-history></app-organization-history>
+</app-dynamic-modal>
+
+<app-dynamic-modal
+  [isVisible]="isVisibleDeletingModal"
+  (isVisibleChange)="isVisibleDeletingModal = $event"
+  [modalTitle]="modalTitle"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Отмена'"
+  [confirmButtonTitle]="'Удалить'"
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+>
+  <app-deleting-form></app-deleting-form>
+</app-dynamic-modal>

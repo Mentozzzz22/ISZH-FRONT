@@ -1,0 +1,48 @@
+<div style="display: flex; border: 1px solid black">
+  <nz-col>
+    <p class="modalHeaderText">Поле: </p>
+    <nz-divider></nz-divider>
+    <p class="modalInputText">Наименование на русском языке: </p>
+
+    <p class="modalInputText">Наименование на казахском языке (Кириллица): </p>
+
+    <p class="modalInputText">Наименование на казахском языке (Латиница): </p>
+
+    <p class="modalInputText">Нименование на английском языке: </p>
+
+    <p class="modalInputText">Дата начала действия: </p>
+
+    <p class="modalInputText">Дата окончания действия: </p>
+
+    <p class="modalInputText">Статус: </p>
+
+  </nz-col>
+  <nz-col>
+    <p class="modalHeaderText">Данные: </p>
+    <nz-divider></nz-divider>
+    <input nzSize="large" nz-input   [(ngModel)]="selectedValue"
+               class="modalInput">
+
+    <input nzSize="large" nz-input   [(ngModel)]="selectedValue"
+           class="modalInput">
+
+    <input nzSize="large" nz-input   [(ngModel)]="selectedValue"
+           class="modalInput">
+
+    <input nzSize="large" nz-input   [(ngModel)]="selectedValue"
+           class="modalInput">
+
+    <nz-date-picker class="modalInput" nzAllowClear nzPlaceHolder="дд.мм.гггг." [(ngModel)]="date"
+                    (ngModelChange)="onChange($event)"></nz-date-picker>
+
+    <nz-date-picker class="modalInput" nzAllowClear nzPlaceHolder="дд.мм.гггг." [(ngModel)]="date"
+                    (ngModelChange)="onChange($event)"></nz-date-picker>
+
+    <input nzSize="large" nz-input   [(ngModel)]="selectedValue"
+           class="modalInput">
+  </nz-col>
+</div>
+<div style="text-align: end; margin-top: 10px">
+  <p class="changesText">Изменения вступят в силу с: <nz-date-picker class="changesInput" nzAllowClear nzPlaceHolder="дд.мм.гггг." [(ngModel)]="date"
+                                                                     (ngModelChange)="onChange($event)"></nz-date-picker></p>
+</div>

@@ -1,4 +1,5 @@
-<nz-modal class="dynamic-modal" [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" nzTitle="{{modalTitle}}" (nzOnOk)="handleOk()">
+<nz-modal class="dynamic-modal" [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" nzTitle="{{modalTitle}}"
+          (nzOnOk)="handleOk()">
   <ng-container *nzModalContent>
     <ng-content></ng-content>
   </ng-container>
@@ -6,7 +7,7 @@
     <button
       *ngIf="modalType === 'doubleButton'"
       class="modalBtn"
-      style="background-color: #22222224; width: 110px; height: 39px"
+      style="background-color: #22222224; height: 39px"
       nz-button
       nzType="default"
       (click)="handleCancel()"
@@ -16,7 +17,7 @@
     <button
       class="modalBtn"
       [style.background-color]="modalType === 'singleButton' ? '#77C48D' : '#77C48D'"
-      style="width: 123px; height: 39px"
+      style=" height: 39px"
       nz-button
       nzType="default"
       (click)="handleOk()"

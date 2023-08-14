@@ -10,6 +10,7 @@ import {AnimalRegistryComponent} from './portal/animal-accounting/animal-registr
 import {AnimalAccountingComponent} from './portal/animal-accounting/animal-accounting.component';
 import {RolesAccessesComponent} from "./portal/administration/roles-accesses/roles-accesses.component";
 import {AddAnimalsComponent} from "./portal/animal-accounting/animal-registry/add-animals/add-animals.component";
+import {DirectoriesComponent} from "./directories/directories.component";
 
 const routes: Routes = [
   {
@@ -74,7 +75,16 @@ const routes: Routes = [
       breadcrumb: 'Администрирование' // Breadcrumb label for the Home page
     }
   },
-];
+  {
+    path: 'directories',
+    component: DirectoriesComponent,
+    children: [],
+    data: {
+      breadcrumb: 'Справочники'
+    }
+}
+]
+;
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

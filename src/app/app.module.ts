@@ -71,6 +71,9 @@ import {NzTreeViewModule} from "ng-zorro-antd/tree-view";
 import {NzHighlightModule} from "ng-zorro-antd/core/highlight";
 import { RolesAccessesComponent } from './portal/administration/roles-accesses/roles-accesses.component';
 import { AddAnimalsComponent } from './portal/animal-accounting/animal-registry/add-animals/add-animals.component';
+import { DirectoriesComponent } from './directories/directories.component';
+import { CreateGroupFormComponent } from './create-group-form/create-group-form.component';
+import { CreateDirectoryFormComponent } from './create-directory-form/create-directory-form.component';
 
 registerLocaleData(en);
 
@@ -96,6 +99,9 @@ registerLocaleData(en);
     OrganizationHistoryComponent,
     RolesAccessesComponent,
     AddAnimalsComponent,
+    DirectoriesComponent,
+    CreateGroupFormComponent,
+    CreateDirectoryFormComponent,
   ],
   imports: [
     BrowserModule,
